@@ -3,6 +3,7 @@ const World= Matter.World;
 const Bodies = Matter.Bodies;
 
 var engine, world;
+var drops = [];
 var maxDrops = 100;
 
 function preload(){
@@ -17,7 +18,7 @@ function setup(){
     world = engine.world;
    
     for(var i=0; i<maxDrops; i++){
-        maxDrops.push(new Drop(random(0,400), random(0,400)));
+        drops.push(new Drop(random(0,400), random(0,400)));
     }
     
 }
@@ -28,7 +29,8 @@ function draw(){
 
     Engine.update(engine);
 
-    maxDrops.display();
+    for(var i = 0; i<maxDrops; i++){ drops[i].showDrop();
+    drops[i].updateY();
     
 }   
 
